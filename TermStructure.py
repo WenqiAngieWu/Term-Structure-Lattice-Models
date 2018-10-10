@@ -117,14 +117,14 @@ def BondOptionEU(n, bondMtry, face, N, r00, K, u, d, cp):
 
 # =============================================================================
 def BondForward(n, bondMtry, face, N, r00, u, d):
-    """Forward on Bond pricing"""
+    """Bond forwards pricing"""
     down = Bond(n, N, 1, r00, u, d)
     up = Bond(n, bondMtry, face, r00, u, d)
     return up/down
     
 # =============================================================================
 def BondFutures(n, bondMtry, face, N, r00, u, d):  
-    """Futures on bond pricing"""
+    """bond futures pricing"""
     q1 = q2 = 0.5
     bondTree = GenerateBondTree(n, bondMtry, face, r00, u, d)
     futuresTree = np.zeros((N+1, N+1))
